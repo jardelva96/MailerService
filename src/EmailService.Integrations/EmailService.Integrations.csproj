@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmailService.Application\EmailService.Application.csproj" />
+    <ProjectReference Include="..\EmailService.Domain\EmailService.Domain.csproj" />
+    <ProjectReference Include="..\EmailService.Shared\EmailService.Shared.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

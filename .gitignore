@@ -1,0 +1,18 @@
+# Compiled
+bin/
+obj/
+
+# IDE
+.vs/
+.vscode/*history*/
+
+# User secrets
+*.user
+*.suo
+
+# Logs
+*.log
+logs/
+
+# Docker
+**/node_modules/
