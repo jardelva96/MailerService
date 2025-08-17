@@ -1,4 +1,4 @@
-### MailerService
+# MailerService
 
 A production-ready .NET 8 email microservice composed of an API and a background Worker, packaged with Docker Compose and instrumented end-to-end with OpenTelemetry (OTLP → Jaeger) and structured logging to Seq. It uses RabbitMQ for messaging and PostgreSQL for persistence, with unit and integration tests.
 
