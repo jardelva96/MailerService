@@ -1,10 +1,10 @@
-###MailerService
+### MailerService
 
 A production-ready .NET 8 email microservice composed of an API and a background Worker, packaged with Docker Compose and instrumented end-to-end with OpenTelemetry (OTLP → Jaeger) and structured logging to Seq. It uses RabbitMQ for messaging and PostgreSQL for persistence, with unit and integration tests.
 
-#Status: ✅ API and Worker build & run (Docker or dotnet), tests are passing.
+# Status: ✅ API and Worker build & run (Docker or dotnet), tests are passing.
 
-## ✨ Features
+### ✨ Features
 Clean solution split: API (HTTP) + Worker (background processing) + layered Application/Domain/Infrastructure.
 Contracts-first DTOs (EmailRequest, AttachmentDto, etc.) designed for analyzer friendliness (immutable records, IReadOnlyList<>, ReadOnlyMemory<byte>).
 Observability by default
@@ -16,7 +16,7 @@ Database: PostgreSQL (Infrastructure project + DbContext).
 Dockerized: one command boots the whole stack.
 Tests: xUnit unit and integration test projects.
 
-## CI: GitHub Actions workflow to build & test on push/PR.
+### CI: GitHub Actions workflow to build & test on push/PR.
 ```bash
 🗂️ Solution Layout
 MailerService/
@@ -52,11 +52,11 @@ MailerService/
 ├─ SECURITY.md
 └─ README.md
 ```
-##🚀 Quick Start (Docker)
+### 🚀 Quick Start (Docker)
 
 Prerequisites: Docker 
 
-# from repo root
+### from repo root
 ```bash
 docker compose up -d
 docker compose logs -f api worker
@@ -80,18 +80,18 @@ docker compose port api 8080
 
 Then hit http://localhost:<mapped-port>/health or open Swagger (if enabled): http://localhost:<mapped-port>/swagger.
 
-##🧪 Run & Test without Docker
+### 🧪 Run & Test without Docker
 
 Prerequisites: .NET 8 SDK and local dependencies (or adjust connection strings).
 
-## restore & build everything
+### restore & build everything
 ```bash
 dotnet restore
 dotnet build
 dotnet test
 ```
 
-# Run individually:
+### Run individually:
 ```bash
 # API
 dotnet run --project src/EmailService.Api
@@ -99,7 +99,7 @@ dotnet run --project src/EmailService.Api
 # Worker
 dotnet run --project src/EmailService.Worker
 ```
-##🔧 Configuration
+### 🔧 Configuration
 
 Configuration uses standard ASP.NET Core providers:
 ```bash
@@ -107,7 +107,7 @@ appsettings.json / appsettings.{Environment}.json
 
 Environment variables (__ denotes nested sections)
 ```
-# Common keys:
+### Common keys:
 ```bash
 ConnectionStrings__Postgres=Host=...;Port=5432;Database=...;Username=...;Password=...
 
@@ -125,7 +125,7 @@ Seq__Url=http://seq:80 (inside Docker) or http://localhost:5341 locally
 ```
 See src/EmailService.Api/appsettings.json and src/EmailService.Worker/appsettings.json for exact keys included in the project.
 
-## 📦 Contracts (DTOs)
+### 📦 Contracts (DTOs)
 ```bash
 EmailRequest — analyzer-friendly records:
 
@@ -151,7 +151,7 @@ public sealed record EmailRequest(
 );
 ```
 
-#Sample JSON (attachments’ content is base64):
+### Sample JSON (attachments’ content is base64):
 ```bash
 {
   "from": { "name": "System", "address": "no-reply@example.com" },
@@ -174,7 +174,7 @@ public sealed record EmailRequest(
 The public HTTP endpoint for sending emails is exposed by the API (see Swagger).
 The Worker is prepared to consume messages from RabbitMQ and execute the send pipeline.
 
-## 🔭 Observability
+### 🔭 Observability
 
 Tracing & Metrics: OpenTelemetry.* packages enabled for ASP.NET Core + HTTP + runtime metrics; exporter is OTLP → Jaeger.
 
@@ -182,7 +182,7 @@ Logging: Structured logs via Serilog to Seq; correlation flows across API and Wo
 
 Health checks: GET /health (and optionally /healthz) for liveness/readiness.
 
-## 🧰 Tech Stack
+### 🧰 Tech Stack
 
 Runtime: .NET 8 (LTS)
 
@@ -200,7 +200,7 @@ Testing: xUnit (unit + integration)
 
 CI: GitHub Actions
 
-## 🗺️ Roadmap (suggested next steps)
+### 🗺️ Roadmap (suggested next steps)
 
 Implement the RabbitMQ consumer + handler in the Worker using MassTransit.
 
