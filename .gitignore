@@ -1,18 +1,33 @@
-# Compiled
+# MailerService
+
+A .NET 8 email microservice: API + Worker with Docker Compose, OpenTelemetry (OTLP→Jaeger),
+structured logging (Seq), RabbitMQ, PostgreSQL, and xUnit tests.
+
+**Projects**: EmailService.Api, EmailService.Worker, Application, Domain, Infrastructure, Integrations, Contracts.
+
+**Run (docker)**: docker compose up -d
+"@ | Set-Content -Path "README.md" -Encoding UTF8
+
+# .gitignore
+@"
 bin/
 obj/
+out/
+publish/
+TestResults/
+coverage*/
 
-# IDE
 .vs/
-.vscode/*history*/
-
-# User secrets
+.vscode/
+.idea/
 *.user
 *.suo
 
-# Logs
+.DS_Store
+Thumbs.db
 *.log
 logs/
 
-# Docker
-**/node_modules/
+.env
+.env.*
+**/secrets.json

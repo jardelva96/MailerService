@@ -1,6 +1,3 @@
-﻿namespace EmailService.Shared;
+namespace EmailService.Common;
 
-public class Class1
-{
-
-}
+public static class AssemblyAnchor { }

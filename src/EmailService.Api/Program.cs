@@ -1,3 +1,4 @@
+using OpenTelemetry.Instrumentation.Runtime;
 using System.Threading.RateLimiting;
 using Microsoft.AspNetCore.RateLimiting;
 using OpenTelemetry.Metrics;
@@ -55,3 +56,6 @@ app.MapPost("/v1/emails", (EmailRequest req) =>
 .Produces(StatusCodes.Status202Accepted);
 
 app.Run();
+
+
+

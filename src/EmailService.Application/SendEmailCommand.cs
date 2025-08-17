@@ -7,9 +7,11 @@ public record SendEmailCommand(EmailRequest Request) : IRequest<Guid>;
 
 public class SendEmailCommandHandler : IRequestHandler<SendEmailCommand, Guid>
 {
-    public Task<Guid> Handle(SendEmailCommand request, CancellationToken ct)
+    public Task<Guid> Handle(SendEmailCommand request, CancellationToken cancellationToken)
     {
         // TODO: persistir + enfileirar
         return Task.FromResult(Guid.NewGuid());
     }
 }
+
+
